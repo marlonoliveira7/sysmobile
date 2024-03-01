@@ -3,19 +3,17 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
         logoContainer : {
             width:'80%',
-            height: 275,
+            height: 340,
             justifyContent:'center',
             alignItems:'center'
         },
         bemVindo: {
-            fontSize: 20,
+            fontSize: 21,
             marginVertical: 15,
-            width: '32%',
-            backgroundColor:'#35AAFF',
-            color:'#FFF',
+            width: '50%',
+            color:'#000000',
             padding: 5,
             height:30,
-            borderWidth:1
         },
         backgroundContainer : {
             flex: 0,
@@ -30,11 +28,11 @@ export const styles = StyleSheet.create({
             width: '90%'
         },
         input:{
-            backgroundColor:'#FFF',
+            backgroundColor:'#dcdcdc',
             height:40,
             borderWidth: 3,
             width:'90%',
-            borderRadius:5,
+            borderRadius:20,
             marginBottom:20,
             fontSize:20,
             color:'#222',
@@ -43,10 +41,10 @@ export const styles = StyleSheet.create({
         },
         botaoAcessar:{
             backgroundColor:'#35AAFF',
-            width:'65%',
+            width:'75%',
             borderWidth:3,
-            borderRadius:5,
-            height:40,
+            borderRadius:20,
+            height:45,
             padding:10,
             alignItems:'center',
             marginBottom:30,
