@@ -3,6 +3,7 @@ import { useState } from 'react';
 import HomeScreen from "../home";
 
 const [usuario, setUsuario] = useState<string>('')
+const [senha, setSenha] = useState<string>('')
 
 export function Botao() {
   return ( <TouchableOpacity style={styles.container} onPress={() => {HomeScreen}}>
@@ -18,7 +19,7 @@ export function InputLogin() {
             <TextInput style={styles.input} onChangeText={() => setUsuario(usuario)}
                 autoCorrect={false} placeholder='Usuário'></TextInput>
                 
-            <TextInput style={styles.input} 
+            <TextInput style={styles.input} onChangeText={() => setSenha(senha)}
                 autoCorrect={false} placeholder='Senha' secureTextEntry={true} ></TextInput>
         </View>
     )
