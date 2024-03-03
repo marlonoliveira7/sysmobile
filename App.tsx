@@ -4,5 +4,5 @@ import { StyleSheet, Text, View } from 'react-native';
 import { WelcomeScreen } from './src/screens/welcome';
 
 export default function App() {
-  return ( <WelcomeScreen/> ); 
+  return ( <LoginScreen/> ); 
 }
