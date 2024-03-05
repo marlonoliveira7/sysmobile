@@ -3,15 +3,15 @@ import { LoginScreen } from "../login";
 
 export function BotaoAcesso() {
     return ( <TouchableOpacity style={styles.container} onPress={() => {LoginScreen}}>
-      <View>
-          <Text>Entrar</Text>
+      <View style={styles.botaoNavegacao}>
+          <Text>Acessar o sistema</Text>
       </View>
    </TouchableOpacity>)
 }
 export function BotaoCadastro() {
     return ( <TouchableOpacity style={styles.container} onPress={() => {LoginScreen}}>
-      <View >
-          <Text >Entrar</Text>
+      <View style={styles.botaoNavegacao}>
+          <Text>Cadastrar</Text>
       </View>
    </TouchableOpacity>)
 }
@@ -20,7 +20,23 @@ export function BotaoCadastro() {
     container : {
     flex:0,
     alignItems:'center',
-    justifyContent:'center',
-    width: '90%'
+    width: '100%',
+    marginLeft: 20
+    },
+    logoContainer : {
+      width:'80%',
+      height: 340,
+      justifyContent:'center',
+      alignItems:'center'
+  },
+    botaoNavegacao:{
+      backgroundColor:'#dcdcdc',
+      width:'50%',
+      borderWidth:2,
+      borderRadius:10,
+      height:45,
+      padding:10,
+      alignItems:'center',
+      marginTop:10
     }
 });

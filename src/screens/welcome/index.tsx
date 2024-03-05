@@ -2,6 +2,7 @@ import * as React from 'react';
 import logoMarca from './../../../assets/img/sysmobile.png'
 import { View, Text, Image, StyleSheet, Button} from 'react-native';
 import { LoginScreen } from '../login';
+import { BotaoAcesso, BotaoCadastro } from './components';
 
 export interface WelcomeScreenProps {
 }
@@ -9,10 +10,9 @@ export interface WelcomeScreenProps {
 export function WelcomeScreen (props: WelcomeScreenProps) {
     return (
       <View style={styles.container}>
-         <Text>A melhor gestão, para sua locação.</Text>
-         <Image source={logoMarca}/>
-         <Button title='Acessar o sistema' onPress={LoginScreen}/>
-         <Button title='Cadastrar' onPress={LoginScreen}/>
+         <Image style= {styles.logoContainer} source={logoMarca}/>
+        <BotaoAcesso/>
+        <BotaoCadastro/>
       </View>
     );
 }
@@ -22,11 +22,13 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems:'center',
         justifyContent:'center',
-        width: '90%'
+        width: '90%',
     },
-    logoMarcaWelcome : {
-        flex: 1,
+    logoContainer : {
         width:'100%',
-        height: 800,
-    }
+        height: 500,
+        justifyContent:'center',
+        alignItems:'center',
+        marginLeft: 25
+    },
 });
