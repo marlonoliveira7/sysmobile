@@ -2,8 +2,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-nativ
 import { useState } from 'react';
 import HomeScreen from "../home";
 
-const [usuario, setUsuario] = useState<string>('')
-const [senha, setSenha] = useState<string>('')
+
 
 export function Botao() {
   return ( <TouchableOpacity style={styles.container} onPress={() => {HomeScreen}}>
@@ -14,8 +13,10 @@ export function Botao() {
 }
     
 export function InputLogin() {
+const [usuario, setUsuario] = useState<string>('')
+const [senha, setSenha] = useState<string>('')
     return (
-        <View style={styles.backgroundContainer}>   
+        <View style={styles.container}>   
             <TextInput style={styles.input} onChangeText={() => setUsuario(usuario)}
                 autoCorrect={false} placeholder='Usuário'></TextInput>
                 
