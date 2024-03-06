@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useState } from 'react';
 import HomeScreen from "../home";
+import { Formik } from "formik";
 
 
 
@@ -16,6 +17,8 @@ export function InputLogin() {
 const [usuario, setUsuario] = useState<string>('')
 const [senha, setSenha] = useState<string>('')
     return (
+       // <Formik initialValues={{usuario: '', senha: ''}}>
+
         <View style={styles.container}>   
             <TextInput style={styles.input} onChangeText={() => setUsuario(usuario)}
                 autoCorrect={false} placeholder='Usuário'></TextInput>
@@ -23,6 +26,7 @@ const [senha, setSenha] = useState<string>('')
             <TextInput style={styles.input} onChangeText={() => setSenha(senha)}
                 autoCorrect={false} placeholder='Senha' secureTextEntry={true} ></TextInput>
         </View>
+       //  </Formik>
     )
 }
 
