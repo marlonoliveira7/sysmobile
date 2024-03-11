@@ -6,7 +6,6 @@ import { BotaoAcesso, BotaoCadastro } from './components';
 
 export interface WelcomeScreenProps {
 }
-
 export function WelcomeScreen (props: WelcomeScreenProps) {
     return (
       <View style={styles.container}>
@@ -16,7 +15,6 @@ export function WelcomeScreen (props: WelcomeScreenProps) {
       </View>
     );
 }
-
 const styles = StyleSheet.create({
     container : {
         flex:1,

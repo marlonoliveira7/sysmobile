@@ -3,43 +3,75 @@ import { useState } from 'react';
 import { LoginScreen } from "../login";
 import { WelcomeScreen } from "../welcome";
 import logoFundo from './../../../assets/img/sysmobile.png';
+import { Formik } from "formik";
+import * as Yup from 'yup';
 
 export function InputCadastroUsuario() {
-const [cpf, setCpf] = useState<number>(0)
-const [nome, setNome] = useState<string>('')
-const [email, setEmail] = useState<string>('')
-const [telefone, setTelefone] = useState<number>(0)
-const [senha, setSenha] = useState<string>('')
     return ( 
-    <View style={styles.container}>
+      <Formik 
+      initialValues={{cpf: '', nome: '', email: '', telefone: '', senha:''}}
+      validationSchema={Yup.object
+        ({
+            cpf: Yup.string().required('Campo obrigatório'),
+            nome: Yup.string().required('Campo obrigatório'),
+            email: Yup.string().required('Campo obrigatório').email('Digite um email válido'),
+            telefone: Yup.string().required('Campo obrigatório'),
+            senha: Yup.string().required('Digite sua senha').min(8, 'Necessário no mínimo 8 caracteres')
+        })
+    }
+        onSubmit={(dados) => {
+            console.log(dados.cpf)
+            console.log(dados.nome)
+            console.log(dados.email)
+            console.log(dados.senha)
+        }}
+     >          
+     {({values,errors,handleChange,handleSubmit}) => (
+
+        <View style={styles.container}>
                 <Image style={styles.logoContainer} source={logoFundo}/>
                         <TouchableOpacity style={styles.cabecalho}> 
                                 <Text style={styles.corTexto}>Cadastro de Usuários</Text>
                         </TouchableOpacity>
-                <TextInput style={styles.input} placeholder="CPF" 
-                onChangeText={() => setCpf(cpf)} autoCorrect={false}></TextInput>
-                <TextInput style={styles.input} placeholder="Nome" 
-                onChangeText={() => setNome(nome)} autoCorrect={false}></TextInput>
-                <TextInput style={styles.input} placeholder="Email" 
-                onChangeText={() => setEmail(email)} autoCorrect={false}></TextInput>
-                <TextInput style={styles.input} placeholder="Telefone" 
-                onChangeText={() => setTelefone(telefone)} autoCorrect={false}></TextInput>
-                <TextInput style={styles.input} placeholder="Senha" 
-                onChangeText={() => setSenha(senha)} autoCorrect={false} secureTextEntry={true} ></TextInput>
+
+                <Text style={styles.erroText}>{errors.cpf}</Text>
+                <TextInput value={values.cpf} style={styles.input} placeholder="CPF" 
+                onChangeText={handleChange('cpf')} autoCorrect={false}></TextInput>
+                
+
+                 <Text style={styles.erroText}>{errors.nome}</Text>
+                <TextInput value={values.nome} style={styles.input} placeholder="Nome" 
+                onChangeText={handleChange('nome')} autoCorrect={false}></TextInput> 
+                
+
+                <Text style={styles.erroText}>{errors.email}</Text>
+                <TextInput value={values.email} style={styles.input} placeholder="Email"   
+                onChangeText={handleChange('email')} autoCorrect={false}></TextInput>
+                
+                <Text style={styles.erroText}>{errors.telefone}</Text>
+                <TextInput value={values.telefone} style={styles.input} placeholder="Telefone"
+                onChangeText={handleChange('telefone')} autoCorrect={false}></TextInput>
+
+                <Text style={styles.erroText}>{errors.senha}</Text> 
+                <TextInput value={values.senha} style={styles.input} placeholder="Senha" 
+               onChangeText={handleChange('senha')} autoCorrect={false} secureTextEntry={true} ></TextInput>
+               
    
-    <TouchableOpacity style={styles.containerBotao1} onPress={() => {LoginScreen}}>
+        <TouchableOpacity style={styles.containerBotao1} onPress={() =>handleSubmit()}>
             <View style={styles.botaoNavegacao}>
                 <Text style={styles.corTexto}>Gravar</Text>
             </View>
-    </TouchableOpacity>   
+        </TouchableOpacity> 
 
-    <TouchableOpacity style={styles.containerBotao2} onPress={() => {WelcomeScreen}}>
-                    <View style={styles.botaoNavegacao}>
-                        <Text style={styles.corTexto}>Voltar</Text>
-                    </View>
-    </TouchableOpacity> 
-    </View>
-)}
+        <TouchableOpacity style={styles.containerBotao2}>
+            <View style={styles.botaoNavegacao}>
+                <Text style={styles.corTexto}>Voltar</Text>
+            </View>
+        </TouchableOpacity>
+        </View>)} 
+        </Formik>
+    )
+}
 const styles = StyleSheet.create({
         container : {
             flex:0,
@@ -104,5 +136,11 @@ const styles = StyleSheet.create({
           corTexto: {
             color: '#FFF',
             fontSize: 20
+          },
+          erroText: {
+            color: 'red',
+            marginBottom: 3,
+            flex: 0,
+            marginRight:165
           }
 });

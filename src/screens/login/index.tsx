@@ -14,7 +14,6 @@ export function LoginScreen (props: LoginScreenProps) {
         <Image style={styles.logoContainer} source={logoFundo}/>
             <Text style={styles.bemVindo}>Bem-vindo ao sistema</Text>
         <InputLogin/>
-        <Botao/>
   </View>
     );
 }

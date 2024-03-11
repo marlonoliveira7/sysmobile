@@ -6,5 +6,5 @@ import { CadastroUsuarioScreen } from './src/screens/cadastroUsuario';
 import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
-  return ( <WelcomeScreen/> ); 
+  return ( <LoginScreen/> ); 
 }
