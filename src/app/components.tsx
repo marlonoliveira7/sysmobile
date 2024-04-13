@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { LoginScreen } from "../login";
+import { LoginScreen } from "./login";
 
 export function BotaoAcesso() {
     return ( <TouchableOpacity style={styles.container} onPress={() => {LoginScreen}}>

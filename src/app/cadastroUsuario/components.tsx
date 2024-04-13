@@ -1,7 +1,7 @@
 import { StyleSheet, Text, Image, TextInput, TouchableOpacity, View } from "react-native";
 import { useState } from 'react';
 import { LoginScreen } from "../login";
-import { WelcomeScreen } from "../welcome";
+import { WelcomeScreen } from "..";
 import logoFundo from './../../../assets/img/sysmobile.png';
 import { Formik } from "formik";
 import * as Yup from 'yup';
