@@ -8,7 +8,7 @@ import { Botao, InputLogin } from './components';
 export interface LoginScreenProps {
 }
 
-export function LoginScreen (props: LoginScreenProps) {
+export default function LoginScreen (props: LoginScreenProps) {
     return (
   <View style={styles.backgroundContainer}>
         <Image style={styles.logoContainer} source={logoFundo}/>

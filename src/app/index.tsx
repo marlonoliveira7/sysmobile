@@ -4,16 +4,15 @@ import { View, Text, Image, StyleSheet, Button} from 'react-native';
 import { Link } from 'expo-router';
 import { BotaoAcesso, BotaoCadastro } from './components';
 
-export default interface WelcomeScreenProps {
+export interface WelcomeScreenProps {
 }
-export function WelcomeScreen (props: WelcomeScreenProps) {
+export default function WelcomeScreen (props: WelcomeScreenProps) {
     return (
       <View style={styles.container}>
          <Image style= {styles.logoContainer} source={logoMarca}/>
          <Link href={"/login/index.tsx"}>
         <BotaoAcesso/>
         </Link>
-        <BotaoCadastro/>
       </View>
     );
 }
