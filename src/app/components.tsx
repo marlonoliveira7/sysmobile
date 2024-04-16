@@ -1,21 +1,16 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { LoginScreen } from "./login";
+import { Link } from "expo-router";
 
 export function BotaoAcesso() {
-    return ( <TouchableOpacity style={styles.container} onPress={() => {LoginScreen}}>
+    return ( 
+    <TouchableOpacity style={styles.container}>
       <View style={styles.botaoNavegacao}>
-          <Text>Acessar o sistema</Text>
+            <Link href={"login/index"}>
+                <Text>Acessar o sistema</Text>
+            </Link>
       </View>
    </TouchableOpacity>)
 }
-export function BotaoCadastro() {
-    return ( <TouchableOpacity style={styles.container} onPress={() => {LoginScreen}}>
-      <View style={styles.botaoNavegacao}>
-          <Text>Cadastrar</Text>
-      </View>
-   </TouchableOpacity>)
-}
-
   const styles = StyleSheet.create({
     container : {
     flex:0,
@@ -32,11 +27,11 @@ export function BotaoCadastro() {
     botaoNavegacao:{
       backgroundColor:'#dcdcdc',
       width:'50%',
-      borderWidth:2,
+      borderWidth:3,
       borderRadius:10,
       height:45,
       padding:10,
       alignItems:'center',
-      marginTop:10
+      marginTop:-100
     }
 });
